@@ -191,6 +191,7 @@ class OSWorldACI(ACI):
     def get_anthropic_tools(self) -> List[Dict[str, Any]]:
         return self.tool_registry.build_tools(
             deny=[
+                "web_search",
                 "python",
                 "web_fetch",
                 "bash",
