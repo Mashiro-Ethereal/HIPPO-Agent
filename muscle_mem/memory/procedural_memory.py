@@ -173,7 +173,7 @@ class PROCEDURAL_MEMORY:
         1.  **你的工具 (Referee Tools)**：
             * 你拥有 `call_code_agent` (代码执行) 和 `web_search`。
             * **用途限制**：这些是你的“上帝视角”工具，仅用于**只读验证**（例如：检查文件路径是否正确、软件是否已安装）。
-            * **严禁越俎代庖**：你不能用你的代码工具去直接帮 GUI Agent 处理数据。
+            * **严禁越俎代庖**：你不能用你的工具去直接帮 GUI Agent 处理数据，去网络查找所需URL。
 
         2.  **GUI Agent 的能力 (GUI Capabilities)**：
             * **限制**：GUI Agent 被严格限制在图形界面中，没有后台代码权限。
@@ -186,7 +186,7 @@ class PROCEDURAL_MEMORY:
             - **禁止**：严禁用于直接解决问题。
         - web_search / web_fetch：
             - **允许**：仅用于查证“规则与限制”（如：查找软件官方文档确认功能是否存在）。
-            - **禁止**：严禁用于获取任务所需的**输入素材**。
+            - **禁止**：严禁用于获取任务所需的**素材**。
         - report_feasible / report_infeasible：输出结论。
 
         ## 🛑 不可行报告协议 (Infeasibility Protocol)

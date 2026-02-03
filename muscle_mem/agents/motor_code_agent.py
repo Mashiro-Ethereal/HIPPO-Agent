@@ -28,6 +28,8 @@ from muscle_mem.utils.local_env import LocalEnv
 
 logger = logging.getLogger("desktopenv.agent")
 
+CODE_AGENT_TOOL_DENY = ["web_fetch"]
+
 
 def _redact_base64(value: Any) -> Any:
     if isinstance(value, dict):
@@ -487,6 +489,7 @@ class CodeAgent:
             budget=self.budget,
             system_prompt=self.system_prompt,
             llm_agent=self.llm_agent,
+            tool_deny=CODE_AGENT_TOOL_DENY,
         )
         new_messages = messages[prev_len:]
         action_text, tool_uses, tool_results = self._collect_step_info(new_messages)
