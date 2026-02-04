@@ -80,7 +80,7 @@ HIPPO Agent 采用结构化的 agent 框架：
 
 - Benchmark：OSWorld（Computer Use 代表性基准）  
 - 优化目标：**single-run / pass@1**（一次运行的成功率）  
-- 内部全量复跑：**>70.0%**
+- 内部全量复跑：**>72.0%**
 
 > 说明：研究与评测中也常见 pass@k / multi-run 口径，用于衡量多次尝试下的能力上限；HIPPO 的核心目标是提升单次运行的稳定完成能力。
 

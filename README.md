@@ -80,7 +80,7 @@ We treat tools as a primary control surface and curate them for reliability:
 
 - Benchmark: OSWorld  
 - Primary optimization target: **single-run / pass@1**  
-- Internal end-to-end full runs : **>70.0%**
+- Internal end-to-end full runs : **>72.0%**
 
 > Note: pass@k / multi-run settings are also common in evaluation and research to estimate best-of-k performance; HIPPO’s core objective is improving **single-run** reliability for practical usage.
 
@@ -96,4 +96,4 @@ We also thank the OSWorld team for creating, maintaining, and supporting the OSW
 
 ## Contact
 
-HCIII Team, Lenovo  
+HCIII Team, Lenovo  magang5@Lenovo.com

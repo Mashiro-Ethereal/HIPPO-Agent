@@ -4,19 +4,6 @@
 
 ---
 
-## 0) Prerequisites
-
-- Installed:
-  - `git`
-  - `python >= 3.12`
-  - [`uv`](https://github.com/astral-sh/uv)
-- Prepared (if using AWS):
-  - AWS credentials configured (e.g., `~/.aws/credentials` or env vars)
-- Prepared (for model calls):
-  - API keys / base URLs for your LLM and grounding providers
-
----
-
 ## 1) Install OSWorld (uv + Python 3.12)
 
 Enter the OSWorld repo directory:
