@@ -200,13 +200,13 @@ def call_llm_safe(
         #     use_thinking,
         #     sanitized_kwargs,
         # )
-        logger.info(
-            "LLM_CALL_MESSAGES model=%s attempt=%d/%d:\n%s",
-            model_name,
-            attempt_number,
-            max_retries,
-            format_messages_for_logging(sanitized_messages),
-        )
+        # logger.info(
+        #     "LLM_CALL_MESSAGES model=%s attempt=%d/%d:\n%s",
+        #     model_name,
+        #     attempt_number,
+        #     max_retries,
+        #     format_messages_for_logging(sanitized_messages),
+        # )
         try:
             response = agent.get_response(
                 temperature=temperature, use_thinking=use_thinking, **kwargs
@@ -214,15 +214,15 @@ def call_llm_safe(
             assert response is not None, "Response from agent should not be None"
             safe_response = sanitize_text_for_logging(response)
             response_len = len(response) if isinstance(response, str) else "n/a"
-            logger.info(
-                "LLM_CALL_RESPONSE model=%s attempt=%d/%d length=%s:\n%s",
-                model_name,
-                attempt_number,
-                max_retries,
-                response_len,
-                safe_response,
-            )
-            print("Response success!")
+            # logger.info(
+            #     "LLM_CALL_RESPONSE model=%s attempt=%d/%d length=%s:\n%s",
+            #     model_name,
+            #     attempt_number,
+            #     max_retries,
+            #     response_len,
+            #     safe_response,
+            # )
+            # print("Response success!")
             break  # If successful, break out of the loop
         except Exception as e:
             attempt += 1
@@ -257,37 +257,37 @@ def call_llm_safe_with_thinking(
         sanitized_kwargs = sanitize_text_for_logging(
             {k: v for k, v in kwargs.items() if k != "messages"}
         )
-        logger.info(
-            "LLM_CALL_REQUEST model=%s attempt=%d/%d temperature=%s use_thinking=%s kwargs=%s ",
-            model_name,
-            attempt_number,
-            max_retries,
-            temperature,
-            True,
-            sanitized_kwargs,
-        )
-        logger.info(
-            "LLM_CALL_MESSAGES model=%s attempt=%d/%d:\n%s",
-            model_name,
-            attempt_number,
-            max_retries,
-            format_messages_for_logging(sanitized_messages),
-        )
+        # logger.info(
+        #     "LLM_CALL_REQUEST model=%s attempt=%d/%d temperature=%s use_thinking=%s kwargs=%s ",
+        #     model_name,
+        #     attempt_number,
+        #     max_retries,
+        #     temperature,
+        #     True,
+        #     sanitized_kwargs,
+        # )
+        # logger.info(
+        #     "LLM_CALL_MESSAGES model=%s attempt=%d/%d:\n%s",
+        #     model_name,
+        #     attempt_number,
+        #     max_retries,
+        #     format_messages_for_logging(sanitized_messages),
+        # )
         try:
             response, thinking = agent.get_response_with_thinking(
                 temperature=temperature, **kwargs
             )
             safe_response = sanitize_text_for_logging(response)
             response_len = len(response) if isinstance(response, str) else "n/a"
-            logger.info(
-                "LLM_CALL_RESPONSE model=%s attempt=%d/%d length=%s:\n%s",
-                model_name,
-                attempt_number,
-                max_retries,
-                response_len,
-                safe_response,
-            )
-            print("Response success!")
+            # logger.info(
+            #     "LLM_CALL_RESPONSE model=%s attempt=%d/%d length=%s:\n%s",
+            #     model_name,
+            #     attempt_number,
+            #     max_retries,
+            #     response_len,
+            #     safe_response,
+            # )
+            # print("Response success!")
             break
         except Exception as e:
             attempt += 1

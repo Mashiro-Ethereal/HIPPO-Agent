@@ -651,7 +651,7 @@ class ExecutionToolProvider:
                 if field_text:
                     normalized_fields = [field_text]
 
-        logger.info("web_fetch start url=%s fields=%s", url, normalized_fields or None)
+        # logger.info("web_fetch start url=%s fields=%s", url, normalized_fields or None)
 
         base_url = JINA_API_URL
         if not base_url.endswith("/"):
@@ -699,7 +699,7 @@ class ExecutionToolProvider:
             raise
 
         if not normalized_fields:
-            logger.info("web_fetch success url=%s bytes=%d", url, len(markdown))
+            # logger.info("web_fetch success url=%s bytes=%d", url, len(markdown))
             return clamp_text(markdown)
 
         if not self.engine_params:
@@ -733,7 +733,7 @@ class ExecutionToolProvider:
         extracted = _parse_json_response(response)
         if extracted is None:
             extracted = {"error": "invalid_json", "raw": str(response)[:2000]}
-        logger.info("web_fetch extracted url=%s fields=%d", url, len(normalized_fields))
+        # logger.info("web_fetch extracted url=%s fields=%d", url, len(normalized_fields))
         return clamp_text(json.dumps(extracted, ensure_ascii=False, indent=2))
 
 
