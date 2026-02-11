@@ -86,4 +86,4 @@ We also thank the OSWorld team for creating, maintaining, and supporting the OSW
 
 ## Contact
 
-HCIII Team, Lenovo  magang5@Lenovo.com
+HCIII Team, Lenovo  magang5 Lenovo.com
