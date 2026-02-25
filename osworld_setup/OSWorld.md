@@ -1,10 +1,10 @@
 # OSWorld Installation & Deploying `Muscle_mem_agent`
 
-> Goal: Install **OSWorld** (Python **3.12** via **uv**), deploy **Muscle_mem_agent**, switch the AWS AMI, and run evaluation jobs on the **AWS** provider.
+> Goal: Install **OSWorld** (Python **3.12** via **conda**), deploy **Muscle_mem_agent**, switch the AWS AMI, and run evaluation jobs on the **AWS** provider.
 
 ---
 
-## 1) Install OSWorld (uv + Python 3.12)
+## 1) Install OSWorld (conda + Python 3.12)
 
 Enter the OSWorld repo directory:
 
@@ -12,20 +12,21 @@ Enter the OSWorld repo directory:
 cd OSWorld
 ```
 
-Sync dependencies and create the virtual environment (increase timeout if network is slow):
+Create and activate a conda environment:
 
 ```bash
-UV_HTTP_TIMEOUT=300 uv sync
+conda create -n osworld python=3.12
+conda activate osworld
 ```
 
-If your Python installation does not include `pip`, bootstrap it:
+Install OSWorld dependencies:
 
 ```bash
-source OSWorld/.venv/bin/activate
-python -m ensurepip --upgrade
+python -m pip install --upgrade pip
+python -m pip install -e .
 ```
 
-> `uv sync` typically creates the venv at `OSWorld/.venv/`.
+> Keep all install/run steps in the same `osworld` conda environment.
 
 ---
 
@@ -33,10 +34,10 @@ python -m ensurepip --upgrade
 
 ### Step 1: Activate OSWorld virtual environment
 
-Run from anywhere, but ensure the path points to OSWorld’s `.venv`:
+Run from anywhere:
 
 ```bash
-source OSWorld/.venv/bin/activate
+conda activate osworld
 ```
 
 > Recommendation: keep installs/runs inside the same environment to avoid dependency mismatch.
@@ -91,7 +92,7 @@ cd OSWorld
 Run:
 
 ```bash
-uv run python run_muscle_mem_agent.py \
+python run_muscle_mem_agent.py \
   --provider_name "aws" \
   --headless \
   --num_envs 4 \

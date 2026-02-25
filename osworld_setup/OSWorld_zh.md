@@ -1,10 +1,10 @@
 # OSWorld 安装与 `Muscle_mem_agent` 部署
 
-> 目标：安装 **OSWorld**（使用 **uv** + Python **3.12**），部署 **Muscle_mem_agent**，切换 AWS AMI，并在 **AWS** provider 上运行评测任务。
+> 目标：安装 **OSWorld**（使用 **conda** + Python **3.12**），部署 **Muscle_mem_agent**，切换 AWS AMI，并在 **AWS** provider 上运行评测任务。
 
 ---
 
-## 1) 安装 OSWorld（uv + Python 3.12）
+## 1) 安装 OSWorld（conda + Python 3.12）
 
 进入 OSWorld 仓库目录：
 
@@ -12,20 +12,21 @@
 cd OSWorld
 ```
 
-同步依赖并创建虚拟环境（网络较慢时可增大超时）：
+创建并激活 conda 环境：
 
 ```bash
-UV_HTTP_TIMEOUT=300 uv sync
+conda create -n osworld python=3.12
+conda activate osworld
 ```
 
-如果你的 Python 安装不包含 `pip`，可先引导安装：
+安装 OSWorld 依赖：
 
 ```bash
-source OSWorld/.venv/bin/activate
-python -m ensurepip --upgrade
+python -m pip install --upgrade pip
+python -m pip install -e .
 ```
 
-> `uv sync` 通常会在 `OSWorld/.venv/` 下创建虚拟环境。
+> 后续安装与运行步骤都使用同一个 `osworld` conda 环境。
 
 ---
 
@@ -33,10 +34,10 @@ python -m ensurepip --upgrade
 
 ### 步骤 1：激活 OSWorld 虚拟环境
 
-可在任意目录执行，但要确保路径指向 OSWorld 的 `.venv`：
+可在任意目录执行：
 
 ```bash
-source OSWorld/.venv/bin/activate
+conda activate osworld
 ```
 
 > 建议：安装和运行都在同一个环境中完成，避免依赖不一致。
@@ -91,7 +92,7 @@ cd OSWorld
 执行：
 
 ```bash
-uv run python run_muscle_mem_agent.py \
+python run_muscle_mem_agent.py \
   --provider_name "aws" \
   --headless \
   --num_envs 4 \

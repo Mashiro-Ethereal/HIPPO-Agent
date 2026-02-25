@@ -7,14 +7,14 @@ name = "muscle-mem-agent"
 version = "0.1.0"
 description = "muscle-mem-agent"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 license = "MIT"
 dependencies = [
   "anthropic>=0.25.0",
   "backoff>=2.2.1",
   "fastapi>=0.110.0",
   "google-genai>=0.3.0",
-  "numpy>=1.24.0",
+  "numpy>=1.24.0,<2",
   "opencv-python>=4.8.0",
   "openai>=1.0.0",
   "paddleocr>=2.7.0",
