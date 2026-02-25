@@ -28,7 +28,6 @@ dependencies = [
   "pywinauto; platform_system == \"Windows\"",
   "scikit-learn>=1.3.0",
   "scholarly>=1.7.11",
-  "selenium>=4.0.0",
   "tiktoken>=0.6.0",
   "together>=0.2.0",
   "toml>=0.10.2",
